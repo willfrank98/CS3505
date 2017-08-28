@@ -8,6 +8,8 @@ void updatePopulations(double g, double p, double c, double m, double K, double&
 int main()
 {
     return 0;
+
+
 }
 
 void updatePopulations(double g, double p, double c, double m, double K, double & numRabbits, double & numFoxes)
