@@ -61,7 +61,7 @@ int main()
 	}
 
 	//allows the user to control termination of the program
-	char temp;
+	char temp;	
 	cin >> temp;
 
     return 0;
@@ -83,7 +83,7 @@ void plotCharacter(int spaces, char character)
 	for (int i = 0; i < spaces; i++)
 	{
 		//TODO: change '-' to ' '
-		cout << '-';
+		cout << ' ';
 	}
 
 	cout << character;
