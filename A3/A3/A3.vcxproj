@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Trie.cpp" />
+    <ClCompile Include="trieNode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Trie.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6098C24C-FEB2-490E-8762-C822755DBB51}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -145,13 +152,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\CS\3505\A3\Trie.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\CS\3505\A3\TrieNode.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\CS\3505\A3\Trie.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
