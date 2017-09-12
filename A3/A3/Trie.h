@@ -1,7 +1,8 @@
 /* William Frank
-* u1067292
-* A3: Rule-of-Three and the Trie
-*/
+ * u1067292
+ * A3: Rule-of-Three and the Trie
+ */
+
 
 #ifndef HARU_H
 #define HARU_H
@@ -12,6 +13,7 @@
 class Trie
 {
 private:
+
 	trieNode root;
 
 public:

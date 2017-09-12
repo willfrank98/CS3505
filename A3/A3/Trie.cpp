@@ -1,7 +1,7 @@
 /* William Frank
-* u1067292
-* A3: Rule-of-Three and the Trie
-*/
+ * u1067292
+ * A3: Rule-of-Three and the Trie
+ */
 
 #include "Trie.h"
 #include "TrieNode.cpp"

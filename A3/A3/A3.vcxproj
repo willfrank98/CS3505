@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Trie.cpp" />
     <ClCompile Include="trieNode.cpp" />
+    <ClCompile Include="TrieTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Trie.h" />

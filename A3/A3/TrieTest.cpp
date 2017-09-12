@@ -1,0 +1,11 @@
+/* William Frank
+ * u1067292
+ * A3: Rule-of-Three and the Trie
+ */
+
+using namespace std;
+
+int main()
+{
+
+}
