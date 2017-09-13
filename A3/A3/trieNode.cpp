@@ -3,7 +3,8 @@
  * A3: Rule-of-Three and the Trie
  */
 
-#include <vector>
+//#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -11,18 +12,41 @@ class trieNode
 {
 private:
 
-	int chars[26];
+	trieNode* chars;
 
 public:
 
+	bool exists;
+
 	trieNode()
 	{
-		for (int i = 0; i < 26; i++)
+		exists = false;
+	}
+
+	//prevents infinite recursive calls
+	void initialize()
+	{
+		chars = new trieNode[26];
+	}
+
+	void addWord(string word)
+	{
+		exists = true;
+		char c = word[0];
+		int pos = (int)c;
+
+		string newWord = word.substr(1, word.length() - 1);
+
+		if (newWord.length() > 0)
 		{
-			chars[i] = 0;
+			word.substr(1, word.length() - 1);
 		}
 	}
 
 
+	~trieNode()
+	{
+		delete[] chars;
+	}
 
 };

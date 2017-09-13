@@ -9,6 +9,7 @@
 
 #include <string>
 #include <vector>
+#include "TrieNode.cpp"
 
 class Trie
 {
@@ -26,8 +27,9 @@ public:
 
 	bool isWord(std::string word);
 
-	std::vector<std::string> allWordsStartingWithPrefix(std::string prefix)
+	std::vector<std::string> allWordsStartingWithPrefix(std::string prefix);
 
+	~Trie();
 };
 
 #endif

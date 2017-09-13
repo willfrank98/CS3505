@@ -26,6 +26,9 @@
   <ItemGroup>
     <ClInclude Include="Trie.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="text.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6098C24C-FEB2-490E-8762-C822755DBB51}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
