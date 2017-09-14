@@ -27,7 +27,6 @@
     <ClInclude Include="Trie.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="q.txt" />
     <Text Include="text.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -4,7 +4,6 @@
  */
 
 #include "Trie.h"
-#include "trieNode.cpp"
 
 using namespace std;
 
@@ -12,8 +11,7 @@ trieNode root;
 
 Trie::Trie()
 {
-	root.initialize();
-	root.setLetter('%');
+
 }
 
 //new copy cosntructor
@@ -29,18 +27,16 @@ void Trie::addWord(string word)
 
 bool Trie::isWord(string word)
 {
-	return root.isWord(word);
+	return false;
 }
 
-vector<string> Trie::allWordsStartingWithPrefix(string prefix)
-{
-	return root.findEndOfPrefix(prefix, 0);
-}
+//vector<string> Trie::allWordsStartingWithPrefix(string prefix)
+//{
+//	return NULL;
+//}
 
 Trie::~Trie()
 {
-
-
+	
 }
-
 
