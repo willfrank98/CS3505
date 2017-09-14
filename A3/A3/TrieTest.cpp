@@ -7,6 +7,10 @@
 #include <fstream>
 #include "Trie.h"
 
+//#include <vld.h>
+
+ 
+
 using namespace std;
 
 int main(int argc, char **argv)
