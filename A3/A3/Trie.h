@@ -9,13 +9,10 @@
 
 #include <string>
 #include <vector>
-#include "TrieNode.cpp"
 
 class Trie
 {
 private:
-
-	trieNode root;
 
 public:
 
