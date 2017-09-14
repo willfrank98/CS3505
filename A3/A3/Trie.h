@@ -1,7 +1,7 @@
 /* William Frank
- * u1067292
- * A3: Rule-of-Three and the Trie
- */
+* u1067292
+* A3: Rule-of-Three and the Trie
+*/
 
 
 #ifndef HARU_H
@@ -9,13 +9,10 @@
 
 #include <string>
 #include <vector>
-#include "TrieNode.cpp"
 
 class Trie
 {
 private:
-
-	trieNode root;
 
 public:
 

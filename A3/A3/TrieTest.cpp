@@ -1,7 +1,7 @@
 /* William Frank
- * u1067292
- * A3: Rule-of-Three and the Trie
- */
+* u1067292
+* A3: Rule-of-Three and the Trie
+*/
 
 #include <iostream>
 #include <fstream>
@@ -30,11 +30,48 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		cout << "Invalid dictionary file";
+		cout << "Invalid file: " << argv[1];
 		return 0;
 	}
 
+	ifstream query;
+	//query.open(argv[2]);
+	query.open("q.txt");
 
+	if (query.is_open())
+	{
+		//adds every word to the trie
+		while (getline(query, word))
+		{
+			if (t.isWord(word))
+			{
+				cout << word << " is found" << endl;
+			}
+			else
+			{
+				cout << word << " is not found, did you mean:" << endl;
 
+				vector<string> words = t.allWordsStartingWithPrefix(word);
 
+				if (words.size() == 0)
+				{
+					cout << "   no alternatives found" << endl;
+				}
+				else
+				{
+					for each (string s in words)
+					{
+						cout << "   " << s << endl;
+					}
+				}
+			}
+		}
+
+		query.close();
+	}
+	else
+	{
+		cout << "Invalid file: " << argv[2];
+		return 0;
+	}
 }
