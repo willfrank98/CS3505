@@ -12,24 +12,25 @@ class trieNode
 {
 private:
 
-	trieNode* chars;
-	bool exists;
-	bool validEnd;
+	bool exists_;
+	bool validEnd_;
 	char letter; //for testing purposes only
 
 public:
 
+	trieNode* chars;
+
 	trieNode()
 	{
-		exists = false;
+		exists_ = false;
 	}
 
 	//prevents infinite recursive calls
 	void initialize()
 	{
 		chars = new trieNode[26];
-		exists = true;
-		validEnd = false;
+		exists_ = true;
+		validEnd_ = false;
 	}
 
 	void addWord(string word)
@@ -51,7 +52,7 @@ public:
 		}
 		else
 		{
-			validEnd = true;
+			validEnd_ = true;
 		}
 	}
 
@@ -62,7 +63,7 @@ public:
 
 		if (word.length() < 1)
 		{
-			return validEnd;
+			return validEnd_;
 		}
 
 		string newWord = word.substr(1, word.length() - 1);
@@ -127,23 +128,40 @@ public:
 
 	bool doesExist()
 	{
-		return exists;
+		return exists_;
 	}
 
 	bool isValidEnd()
 	{
-		return validEnd;
+		return validEnd_;
 	}
 
+	//for testing purposes only
 	void setLetter(char c)
 	{
 		letter = c;
 	}
 
+	trieNode& operator=(trieNode other)
+	{
+		initialize();
+		validEnd_ = other.isValidEnd();
+		//exists_ = other.doesExist();
+
+		for (int i = 0; i < 26; i++)
+		{
+			if (other.chars[i].doesExist())
+			{
+				chars[i] = other.chars[i];
+			}
+		}
+
+		return *this;
+	}
 
 	~trieNode()
 	{
-		if (exists)
+		if (exists_)
 		{
 			delete[] chars;
 		}

@@ -12,6 +12,8 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+	{
+
 	Trie t;
 
 	string word;
@@ -34,6 +36,8 @@ int main(int argc, char **argv)
 		cout << "Invalid file: " << argv[1];
 		return 0;
 	}
+
+	Trie t2(t);
 
 	ifstream query;
 	//query.open(argv[2]);
@@ -75,4 +79,6 @@ int main(int argc, char **argv)
 		cout << "Invalid file: " << argv[2];
 		return 0;
 	}
+
+	}//makes sure everything gets cleaned up before the program exits
 }

@@ -4,7 +4,6 @@
 */
 
 #include "Trie.h"
-#include "trieNode.cpp"
 
 using namespace std;
 
@@ -17,9 +16,10 @@ Trie::Trie()
 }
 
 //new copy cosntructor
+//creates a deep copy
 Trie::Trie(const Trie& trie)
 {
-
+	root = trie.root;
 }
 
 void Trie::addWord(string word)
@@ -37,10 +37,26 @@ vector<string> Trie::allWordsStartingWithPrefix(string prefix)
 	return root.findEndOfPrefix(prefix, 0);
 }
 
+Trie & Trie::operator=(Trie other)
+{
+	//trieNode temp = other.root;
+	//other.root = root;
+	//root = temp;
+
+	root = other.root;
+
+	return *this;
+}
+
+//const trieNode * Trie::getRoot()
+//{
+//	trieNode* rootPtr = &root;
+//	return rootPtr;
+//}
+
 Trie::~Trie()
 {
-
-
+	//no pointer resources acquired
 }
 
 
