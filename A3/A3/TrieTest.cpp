@@ -37,7 +37,9 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-	Trie t2(t);
+	Trie t2;
+
+	t2 = t;
 
 	ifstream query;
 	//query.open(argv[2]);
@@ -48,7 +50,7 @@ int main(int argc, char **argv)
 		//adds every word to the trie
 		while (getline(query, word))
 		{
-			if (t.isWord(word))
+			if (t2.isWord(word))
 			{
 				cout << word << " is found" << endl;
 			}
@@ -56,7 +58,7 @@ int main(int argc, char **argv)
 			{
 				cout << word << " is not found, did you mean:" << endl;
 
-				vector<string> words = t.allWordsStartingWithPrefix(word);
+				vector<string> words = t2.allWordsStartingWithPrefix(word);
 
 				if (words.size() == 0)
 				{

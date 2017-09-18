@@ -1,2 +1,5 @@
-fq
-ca
+cat
+rat
+house
+mouse
+fas

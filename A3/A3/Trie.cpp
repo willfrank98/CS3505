@@ -39,24 +39,16 @@ vector<string> Trie::allWordsStartingWithPrefix(string prefix)
 
 Trie & Trie::operator=(Trie other)
 {
-	//trieNode temp = other.root;
-	//other.root = root;
-	//root = temp;
-
-	root = other.root;
+	Trie temp(other);
+	other.root = root;
+	root = temp.root;
 
 	return *this;
 }
 
-//const trieNode * Trie::getRoot()
-//{
-//	trieNode* rootPtr = &root;
-//	return rootPtr;
-//}
-
 Trie::~Trie()
 {
-	//no pointer resources acquired
+	//no pointer resources used
 }
 
 

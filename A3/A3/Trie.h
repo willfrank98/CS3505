@@ -31,8 +31,6 @@ public:
 
 	Trie& operator=(Trie other);
 
-	//const trieNode* getRoot();
-
 	~Trie();
 };
 

@@ -23,6 +23,7 @@ public:
 	trieNode()
 	{
 		exists_ = false;
+		validEnd_ = false;
 	}
 
 	//prevents infinite recursive calls
@@ -30,7 +31,6 @@ public:
 	{
 		chars = new trieNode[26];
 		exists_ = true;
-		validEnd_ = false;
 	}
 
 	void addWord(string word)
@@ -142,11 +142,16 @@ public:
 		letter = c;
 	}
 
+	char getLetter()
+	{
+		return letter;
+	}
+
 	trieNode& operator=(trieNode other)
 	{
 		initialize();
 		validEnd_ = other.isValidEnd();
-		//exists_ = other.doesExist();
+		letter = other.getLetter();	//for testing purposes only
 
 		for (int i = 0; i < 26; i++)
 		{
@@ -161,8 +166,9 @@ public:
 
 	~trieNode()
 	{
-		if (exists_)
+		if (exists_ && (letter > 96 && letter < 124))
 		{
+			exists_ = false;
 			delete[] chars;
 		}
 	}
