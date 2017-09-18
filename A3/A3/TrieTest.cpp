@@ -18,14 +18,15 @@ int main(int argc, char **argv)
 
 	string word;
 	ifstream dic;
-	//dic.open(argv[1]);
-	dic.open("text.txt");
+	dic.open(argv[1]);
+	//dic.open("text.txt");
 
 	if (dic.is_open())
 	{
 		//adds every word to the trie
 		while (getline(dic, word))
 		{
+			cout << "Adding word " << word << endl;
 			t.addWord(word);
 		}
 
@@ -37,20 +38,20 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-	Trie t2;
+	//Trie t2;
 
-	t2 = t;
+	//t2 = t;
 
 	ifstream query;
-	//query.open(argv[2]);
-	query.open("q.txt");
+	query.open(argv[2]);
+	//query.open("q.txt");
 
 	if (query.is_open())
 	{
 		//adds every word to the trie
 		while (getline(query, word))
 		{
-			if (t2.isWord(word))
+			if (t.isWord(word))
 			{
 				cout << word << " is found" << endl;
 			}
@@ -58,7 +59,7 @@ int main(int argc, char **argv)
 			{
 				cout << word << " is not found, did you mean:" << endl;
 
-				vector<string> words = t2.allWordsStartingWithPrefix(word);
+				vector<string> words = t.allWordsStartingWithPrefix(word);
 
 				if (words.size() == 0)
 				{
@@ -66,7 +67,7 @@ int main(int argc, char **argv)
 				}
 				else
 				{
-					for each (string s in words)
+					for (auto s : words)
 					{
 						cout << "   " << s << endl;
 					}

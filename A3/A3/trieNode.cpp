@@ -86,7 +86,7 @@ public:
 	{
 		vector<string> words;
 
-		if (prefix.length() == n)
+		if ((int)prefix.length() == n)
 		{
 			return wordsWithPrefix(prefix);
 		}
@@ -124,7 +124,7 @@ public:
 					words.push_back(newPrefix);
 				}
 
-				for each (string s in chars[i].wordsWithPrefix(newPrefix))
+				for (string s : chars[i].wordsWithPrefix(newPrefix))
 				{
 					words.push_back(s);
 				}
