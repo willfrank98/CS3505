@@ -166,7 +166,7 @@ public:
 
 	~trieNode()
 	{
-		if (exists_ && (letter > 96 && letter < 124))
+		if (exists_)
 		{
 			exists_ = false;
 			delete[] chars;
