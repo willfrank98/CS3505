@@ -38,10 +38,12 @@ public:
 		char c = word[0];
 		int pos = (int)c - 97;
 
+		//while more letters exist that need to be added to the trie
 		if (word.length() > 0)
 		{
 			string newWord = word.substr(1, word.length() - 1);
 
+			//if a node "exists" then it is part of a word
 			if (!chars[pos].doesExist())
 			{
 				chars[pos].initialize();
@@ -61,11 +63,13 @@ public:
 		char c = word[0];
 		int pos = (int)c - 97;
 
+		//is true when the end of the given word is reached
 		if (word.length() < 1)
 		{
 			return validEnd_;
 		}
 
+		//recurses in a similar manner to addWord
 		string newWord = word.substr(1, word.length() - 1);
 
 		if (chars[pos].doesExist())
@@ -90,6 +94,7 @@ public:
 		char c = prefix[n];
 		int pos = (int)c - 97;
 
+		//gets to the end of the given prefix recursively
 		if (chars[pos].doesExist())
 		{
 			return chars[pos].findEndOfPrefix(prefix, n + 1);
@@ -105,8 +110,11 @@ public:
 	{
 		vector<string> words;
 
+		//finds all posible words with a given prefix
 		for (int i = 0; i < 26; i++)
 		{
+			//creates a new prefix for each additional letter
+			//when isValidEnd is true we know this prefix is a complete word
 			if (chars[i].doesExist())
 			{
 				string newPrefix = prefix + (char)(i + 97);
@@ -166,9 +174,9 @@ public:
 
 	~trieNode()
 	{
-		if (exists_ && (letter > 96 && letter < 124))
+		if (exists_)
 		{
-			exists_ = false;
+			//exists_ = false;
 			delete[] chars;
 		}
 	}
