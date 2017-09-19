@@ -18,15 +18,14 @@ int main(int argc, char **argv)
 
 	string word;
 	ifstream dic;
-	dic.open(argv[1]);
-	//dic.open("text.txt");
+	//dic.open(argv[1]);
+	dic.open("text.txt");
 
 	if (dic.is_open())
 	{
 		//adds every word to the trie
 		while (getline(dic, word))
 		{
-			cout << "Adding word " << word << endl;
 			t.addWord(word);
 		}
 
@@ -38,13 +37,9 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-	//Trie t2;
-
-	//t2 = t;
-
 	ifstream query;
-	query.open(argv[2]);
-	//query.open("q.txt");
+	//query.open(argv[2]);
+	query.open("q.txt");
 
 	if (query.is_open())
 	{

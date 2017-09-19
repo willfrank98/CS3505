@@ -24,13 +24,13 @@ public:
 	{
 		exists_ = false;
 		validEnd_ = false;
+		chars = nullptr;
 	}
 
-	//prevents infinite recursive calls
+	//is called when a letter is added to this branch of the trie
 	void initialize()
 	{
 		chars = new trieNode[26];
-		exists_ = true;
 	}
 
 	void addWord(string word)
@@ -43,13 +43,14 @@ public:
 		{
 			string newWord = word.substr(1, word.length() - 1);
 
-			//if a node "exists" then it is part of a word
-			if (!chars[pos].doesExist())
+			//gets the node array ready for a new letter if necessary
+			if (chars == nullptr)
 			{
-				chars[pos].initialize();
+				initialize();
 			}
 
 			chars[pos].setLetter(c);	//for testing purposes only
+			chars[pos].setExists(true);
 			chars[pos].addWord(newWord);
 		}
 		else
@@ -115,7 +116,7 @@ public:
 		{
 			//creates a new prefix for each additional letter
 			//when isValidEnd is true we know this prefix is a complete word
-			if (chars[i].doesExist())
+			if (chars != nullptr && chars[i].doesExist())
 			{
 				string newPrefix = prefix + (char)(i + 97);
 
@@ -139,6 +140,11 @@ public:
 		return exists_;
 	}
 
+	void setExists(bool exists)
+	{
+		exists_ = exists;
+	}
+
 	bool isValidEnd()
 	{
 		return validEnd_;
@@ -157,15 +163,22 @@ public:
 
 	trieNode& operator=(trieNode other)
 	{
-		initialize();
 		validEnd_ = other.isValidEnd();
+		exists_ = other.doesExist();
 		letter = other.getLetter();	//for testing purposes only
 
-		for (int i = 0; i < 26; i++)
+		if (other.chars != nullptr)
 		{
-			if (other.chars[i].doesExist())
+			for (int i = 0; i < 26; i++)
 			{
-				chars[i] = other.chars[i];
+				if (other.chars[i].doesExist())
+				{
+					if (chars == nullptr)
+					{
+						initialize();
+					}
+					chars[i] = other.chars[i];
+				}
 			}
 		}
 
@@ -174,11 +187,33 @@ public:
 
 	~trieNode()
 	{
-		if (exists_)
+		//bool del = false;
+
+		//if (chars != nullptr)
+		//{
+		//	for (int i = 0; i < 26; i++)
+		//	{
+		//		int c = (int)chars[i].letter;
+		//		if (c > 96 && c < 173 || c == 37)
+		//		{
+		//			del = true;
+		//			break;
+		//		}
+		//	}
+		//}
+
+		//if (del)
+		//{
+		//	delete[] chars;
+		//	chars = nullptr;
+		//}
+
+		//this should work, right?
+		if (chars != nullptr)
 		{
-			//exists_ = false;
 			delete[] chars;
 		}
+		
 	}
 
 };

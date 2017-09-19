@@ -29,6 +29,8 @@ public:
 
 	std::vector<std::string> allWordsStartingWithPrefix(std::string prefix);
 
+	std::vector<std::string> wordsWithWildcardPrefix(std::string word);
+
 	Trie& operator=(Trie other);
 
 	~Trie();

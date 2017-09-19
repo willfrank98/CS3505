@@ -11,8 +11,8 @@ trieNode root;
 
 Trie::Trie()
 {
-	root.initialize();
-	root.setLetter('%');
+	root.setLetter('%');	//for testing purposes only
+	root.setExists(true);
 }
 
 //new copy cosntructor
@@ -37,18 +37,29 @@ vector<string> Trie::allWordsStartingWithPrefix(string prefix)
 	return root.findEndOfPrefix(prefix, 0);
 }
 
+std::vector<std::string> Trie::wordsWithWildcardPrefix(std::string word)
+{
+	return std::vector<std::string>();
+}
+
 Trie & Trie::operator=(Trie other)
 {
-	Trie temp(other);
+	trieNode temp = other.root;
 	other.root = root;
-	root = temp.root;
+	root = temp;
+
+	//root = other.root;
+
+	other.root.chars = nullptr;
+
+	//swap(root, other.root);
 
 	return *this;
 }
 
 Trie::~Trie()
 {
-	//no pointer resources used
+	//no pointer resources created
 }
 
 
